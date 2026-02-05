@@ -36,7 +36,7 @@ const Hero = () => {
           <div className="relative inline-block">
             <div className="w-36 h-36 md:w-44 md:h-44 rounded-full p-[3px] bg-gradient-to-r from-primary via-secondary to-accent mx-auto">
               <img
-                src="/profilephoto.png"
+                src="/linkedinprofile.jpg"
                 alt={personalInfo.name}
                 className="w-full h-full rounded-full object-cover object-top border-4 border-dark"
               />
