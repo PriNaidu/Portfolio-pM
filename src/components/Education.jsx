@@ -1,0 +1,111 @@
+import { motion } from "framer-motion";
+import SectionWrapper from "../ui/SectionWrapper";
+import SectionHeading from "../ui/SectionHeading";
+import GlassCard from "../ui/GlassCard";
+import AnimatedBlob from "../ui/AnimatedBlob";
+import { staggerContainer, fadeInUp } from "../animations/variants";
+import { education } from "../data/education";
+
+const CgpaRing = ({ cgpa, maxCgpa, color }) => {
+  const percentage = cgpa / maxCgpa;
+  const radius = 45;
+  const circumference = 2 * Math.PI * radius;
+
+  return (
+    <div className="relative w-24 h-24 shrink-0">
+      <svg className="w-full h-full -rotate-90" viewBox="0 0 100 100">
+        <circle
+          cx="50"
+          cy="50"
+          r={radius}
+          fill="none"
+          stroke="rgba(255,255,255,0.04)"
+          strokeWidth="6"
+        />
+        <motion.circle
+          cx="50"
+          cy="50"
+          r={radius}
+          fill="none"
+          stroke={color}
+          strokeWidth="6"
+          strokeLinecap="round"
+          strokeDasharray={circumference}
+          strokeDashoffset={circumference}
+          initial={{ strokeDashoffset: circumference }}
+          whileInView={{
+            strokeDashoffset: circumference * (1 - percentage),
+          }}
+          viewport={{ once: true }}
+          transition={{ duration: 1.5, ease: "easeOut", delay: 0.3 }}
+        />
+      </svg>
+      <div className="absolute inset-0 flex flex-col items-center justify-center">
+        <span className="text-lg font-bold font-heading" style={{ color }}>
+          {cgpa}
+        </span>
+        <span className="text-xs text-light-dim">/ {maxCgpa}</span>
+      </div>
+    </div>
+  );
+};
+
+const Education = () => {
+  return (
+    <SectionWrapper id="education">
+      <AnimatedBlob color="#2563eb" size={200} top="0%" left="-5%" delay={2} />
+
+      <SectionHeading
+        title="Education"
+        subtitle="The academic foundation that powers my product thinking and technical understanding"
+      />
+
+      <motion.div
+        variants={staggerContainer}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+        className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto"
+      >
+        {education.map((edu) => (
+          <motion.div key={edu.abbreviation} variants={fadeInUp}>
+            <GlassCard hoverColor={edu.color} className="relative p-6 md:p-8 h-full">
+              <div
+                className="absolute top-0 left-0 right-0 h-0.5"
+                style={{
+                  background: `linear-gradient(90deg, ${edu.color}, ${edu.color}40)`,
+                }}
+              />
+
+              <div className="flex items-start gap-5 mb-4">
+                <CgpaRing cgpa={edu.cgpa} maxCgpa={edu.maxCgpa} color={edu.color} />
+                <div>
+                  <h3 className="text-lg font-bold font-heading text-light mb-1">
+                    {edu.degree}
+                  </h3>
+                  <span
+                    className="inline-block text-xs font-semibold px-2.5 py-0.5 rounded-md mb-2"
+                    style={{
+                      color: edu.color,
+                      background: `${edu.color}12`,
+                      border: `1px solid ${edu.color}25`,
+                    }}
+                  >
+                    {edu.abbreviation}
+                  </span>
+                  <p className="text-light-dim text-sm">{edu.institution}</p>
+                </div>
+              </div>
+
+              <p className="text-light-dim text-sm leading-relaxed">
+                {edu.description}
+              </p>
+            </GlassCard>
+          </motion.div>
+        ))}
+      </motion.div>
+    </SectionWrapper>
+  );
+};
+
+export default Education;
