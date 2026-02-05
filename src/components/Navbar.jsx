@@ -55,7 +55,7 @@ const Navbar = () => {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            Priyanka N.
+            Priyanka Naidu
           </motion.button>
 
           <div className="hidden md:flex items-center gap-1">
