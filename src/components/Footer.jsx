@@ -28,8 +28,10 @@ const Footer = () => {
         onClick={scrollToTop}
         className="fixed bottom-6 right-6 w-10 h-10 rounded-lg flex items-center justify-center cursor-pointer z-40"
         style={{
-          background: "rgba(17, 24, 39, 0.9)",
-          border: "1px solid rgba(255,255,255,0.08)",
+          background: "rgba(15, 22, 41, 0.8)",
+          backdropFilter: "blur(20px)",
+          border: "1px solid rgba(99, 102, 241, 0.2)",
+          boxShadow: "0 4px 16px rgba(99, 102, 241, 0.1)",
         }}
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}

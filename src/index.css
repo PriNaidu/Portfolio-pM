@@ -1,17 +1,17 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #2563eb;
-  --color-primary-light: #60a5fa;
-  --color-primary-dark: #1d4ed8;
-  --color-secondary: #0f766e;
-  --color-secondary-light: #2dd4bf;
-  --color-accent: #d97706;
+  --color-primary: #6366f1;
+  --color-primary-light: #818cf8;
+  --color-primary-dark: #4f46e5;
+  --color-secondary: #06b6d4;
+  --color-secondary-light: #22d3ee;
+  --color-accent: #f59e0b;
   --color-accent-light: #fbbf24;
   --color-muted: #64748b;
-  --color-dark: #0b1121;
-  --color-dark-card: #111827;
-  --color-dark-surface: #1a2332;
+  --color-dark: #0a0e1a;
+  --color-dark-card: #0f1629;
+  --color-dark-surface: #151d30;
   --color-light: #f1f5f9;
   --color-light-dim: #94a3b8;
 
@@ -40,41 +40,51 @@
 
 @layer utilities {
   .glass {
-    background: rgba(17, 24, 39, 0.7);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.06);
+    background: rgba(15, 22, 41, 0.55);
+    backdrop-filter: blur(24px) saturate(1.4);
+    -webkit-backdrop-filter: blur(24px) saturate(1.4);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.05);
   }
 
   .glass-strong {
-    background: rgba(17, 24, 39, 0.92);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(15, 22, 41, 0.8);
+    backdrop-filter: blur(32px) saturate(1.5);
+    -webkit-backdrop-filter: blur(32px) saturate(1.5);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  }
+
+  .glass-glow {
+    background: rgba(15, 22, 41, 0.5);
+    backdrop-filter: blur(28px) saturate(1.5);
+    -webkit-backdrop-filter: blur(28px) saturate(1.5);
+    border: 1px solid rgba(99, 102, 241, 0.15);
+    box-shadow: 0 8px 32px rgba(99, 102, 241, 0.08), 0 0 60px rgba(99, 102, 241, 0.04), inset 0 1px 0 rgba(255, 255, 255, 0.06);
   }
 
   .gradient-text {
-    background: linear-gradient(135deg, #60a5fa, #2dd4bf);
+    background: linear-gradient(135deg, #818cf8, #22d3ee);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 
   .gradient-text-warm {
-    background: linear-gradient(135deg, #fbbf24, #d97706);
+    background: linear-gradient(135deg, #fbbf24, #f59e0b);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 
   .animated-gradient {
-    background: linear-gradient(-45deg, #0b1121, #0f1d32, #0b1a2e, #0d1526, #0b1121);
+    background: linear-gradient(-45deg, #0a0e1a, #0f1629, #0e1530, #0c1222, #0a0e1a);
     background-size: 400% 400%;
     animation: gradientShift 20s ease infinite;
   }
 
   .section-alt {
-    background: rgba(17, 24, 39, 0.4);
+    background: rgba(15, 22, 41, 0.35);
   }
 }
 

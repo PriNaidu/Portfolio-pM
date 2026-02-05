@@ -21,49 +21,49 @@ const highlights = [
     value: "4+",
     label: "Years Experience",
     detail: "Engineering + PM",
-    color: "#2563eb",
+    color: "#6366f1",
   },
   {
     icon: HiChat,
     value: "15+",
     label: "User Interviews",
     detail: "Across personas",
-    color: "#0f766e",
+    color: "#06b6d4",
   },
   {
     icon: HiTrendingUp,
     value: "70%",
     label: "Engagement Lift",
     detail: "UX experiments",
-    color: "#d97706",
+    color: "#f59e0b",
   },
   {
     icon: HiUserGroup,
     value: "10K+",
     label: "Monthly Users",
     detail: "SaaS platform",
-    color: "#2563eb",
+    color: "#6366f1",
   },
   {
     icon: HiAcademicCap,
     value: "PM",
     label: "Fellow",
     detail: "NextLeap trained",
-    color: "#0f766e",
+    color: "#06b6d4",
   },
   {
     icon: HiLightBulb,
     value: "5+",
     label: "Product Cases",
     detail: "End-to-end ownership",
-    color: "#d97706",
+    color: "#f59e0b",
   },
 ];
 
 const About = () => {
   return (
     <SectionWrapper id="about" className="section-alt">
-      <AnimatedBlob color="#2563eb" size={250} top="-5%" right="-5%" delay={1} />
+      <AnimatedBlob color="#6366f1" size={250} top="-5%" right="-5%" delay={1} />
 
       <SectionHeading
         title="About Me"

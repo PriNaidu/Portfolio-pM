@@ -22,14 +22,14 @@ const contactLinks = [
     label: "Email",
     value: personalInfo.email,
     href: `mailto:${personalInfo.email}`,
-    color: "#2563eb",
+    color: "#6366f1",
   },
   {
     icon: HiPhone,
     label: "Phone",
     value: personalInfo.phone,
     href: `tel:${personalInfo.phone.replace(/\s/g, "")}`,
-    color: "#0f766e",
+    color: "#06b6d4",
   },
 ];
 
@@ -38,13 +38,13 @@ const socialLinks = [
     icon: FaLinkedinIn,
     label: "LinkedIn",
     href: personalInfo.linkedin,
-    color: "#2563eb",
+    color: "#6366f1",
   },
   {
     icon: FaGithub,
     label: "GitHub",
     href: personalInfo.github,
-    color: "#0f766e",
+    color: "#06b6d4",
   },
 ];
 
@@ -87,7 +87,7 @@ const Contact = () => {
 
   return (
     <SectionWrapper id="contact">
-      <AnimatedBlob color="#2563eb" size={250} top="0%" right="-5%" delay={2} />
+      <AnimatedBlob color="#6366f1" size={250} top="0%" right="-5%" delay={2} />
 
       <SectionHeading
         title="Get In Touch"

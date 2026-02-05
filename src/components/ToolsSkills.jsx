@@ -10,7 +10,7 @@ import { toolCategories } from "../data/tools";
 const ToolsSkills = () => {
   return (
     <SectionWrapper id="tools" className="section-alt">
-      <AnimatedBlob color="#0f766e" size={200} bottom="5%" left="-3%" delay={3} />
+      <AnimatedBlob color="#06b6d4" size={200} bottom="5%" left="-3%" delay={3} />
 
       <SectionHeading
         title="Tools & Technical Skills"

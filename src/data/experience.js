@@ -14,7 +14,7 @@ export const experiences = [
       "Prioritized feature backlogs using the RICE framework (Reach, Impact, Confidence, Effort), presenting scoring rationale and trade-off decisions to mentors and peer PMs in structured review sessions.",
       "Presented product proposals to panels of senior mentors and peer PMs, incorporating feedback into iterative refinements of problem framing, solution design, and go-to-market thinking.",
     ],
-    color: "#2563eb",
+    color: "#6366f1",
     highlights: ["3+ Product Cases", "15+ User Interviews", "RICE Framework"],
   },
   {
@@ -32,7 +32,7 @@ export const experiences = [
       "Prioritized and shipped iterative UX and feature experiments that improved overall user engagement by 70% and significantly increased feature adoption rates across core workflows.",
       "Supported integration of third-party APIs and AI workflows (LLM-powered chatbot features, external data connectors), contributing to faster go-to-market for new product capabilities.",
     ],
-    color: "#0f766e",
+    color: "#06b6d4",
     highlights: ["10K+ MAU Platform", "70% Engagement Lift", "3+ Squads"],
   },
   {
@@ -49,7 +49,7 @@ export const experiences = [
       "Contributed to sprint planning, backlog grooming, and release coordination processes — helping the team reduce overall development cycle time and improve velocity across quarters.",
       "Built reusable component libraries and established frontend patterns that accelerated feature delivery for subsequent team members and reduced onboarding time for new developers.",
     ],
-    color: "#d97706",
+    color: "#f59e0b",
     highlights: ["Multi-release Delivery", "Scalable Architecture", "Reduced Cycle Time"],
   },
   {
@@ -66,7 +66,7 @@ export const experiences = [
       "Supported early product validation by implementing rapid iterations based on stakeholder input, user testing sessions, and analytics data — learning firsthand how engineering speed enables product learning.",
       "Collaborated with cross-functional teammates including designers, backend engineers, and the founding team to align technical execution with product vision and business milestones.",
     ],
-    color: "#2563eb",
+    color: "#6366f1",
     highlights: ["5,000+ Users MVP", "Early-stage Product", "Rapid Iteration"],
   },
 ];

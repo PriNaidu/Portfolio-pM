@@ -21,9 +21,9 @@ const Hero = () => {
       id="hero"
       className="min-h-screen flex items-center justify-center relative overflow-hidden animated-gradient"
     >
-      <AnimatedBlob color="#2563eb" size={400} top="-10%" left="-5%" delay={0} />
-      <AnimatedBlob color="#0f766e" size={350} bottom="10%" right="-5%" delay={2} />
-      <AnimatedBlob color="#d97706" size={200} top="20%" right="10%" delay={4} />
+      <AnimatedBlob color="#6366f1" size={400} top="-10%" left="-5%" delay={0} />
+      <AnimatedBlob color="#06b6d4" size={350} bottom="10%" right="-5%" delay={2} />
+      <AnimatedBlob color="#f59e0b" size={200} top="20%" right="10%" delay={4} />
 
       <motion.div
         variants={staggerContainer}

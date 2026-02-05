@@ -26,7 +26,7 @@ const iconMap = {
 const CoreSkills = () => {
   return (
     <SectionWrapper id="skills">
-      <AnimatedBlob color="#0f766e" size={250} bottom="0%" right="-5%" delay={3} />
+      <AnimatedBlob color="#06b6d4" size={250} bottom="0%" right="-5%" delay={3} />
 
       <SectionHeading
         title="Core Product Skills"

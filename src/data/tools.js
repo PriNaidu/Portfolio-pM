@@ -1,28 +1,28 @@
 export const toolCategories = [
   {
     category: "Product Management",
-    color: "#2563eb",
+    color: "#6366f1",
     description:
       "Day-to-day tools for managing product backlogs, writing documentation, tracking sprint progress, and collaborating with cross-functional stakeholders.",
     tools: ["Jira", "Confluence", "ClickUp", "Notion"],
   },
   {
     category: "Data & Analytics",
-    color: "#0f766e",
+    color: "#06b6d4",
     description:
       "Tools and skills for querying data, interpreting metrics, analyzing user behavior funnels, and making data-informed product decisions.",
     tools: ["SQL Queries", "Product Analytics", "Metrics Interpretation", "Funnel Analysis", "Excel & Sheets"],
   },
   {
     category: "APIs & Technical",
-    color: "#d97706",
+    color: "#f59e0b",
     description:
       "Technical understanding that allows me to collaborate effectively with engineering teams, scope feasibility, and define clear technical requirements.",
     tools: ["REST APIs", "Third-party Integrations", "API Requirement Definition", "Git & GitHub", "JavaScript", "React"],
   },
   {
     category: "UX & Design",
-    color: "#2563eb",
+    color: "#6366f1",
     description:
       "Skills for evaluating user experience, collaborating with design teams, creating wireframes, and applying usability best practices to product decisions.",
     tools: ["Figma", "UX Principles", "Usability Heuristics", "Wireframing", "User Flow Mapping"],

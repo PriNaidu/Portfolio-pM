@@ -9,7 +9,7 @@ import { experiences } from "../data/experience";
 const Experience = () => {
   return (
     <SectionWrapper id="experience" className="section-alt">
-      <AnimatedBlob color="#d97706" size={250} top="5%" right="-8%" delay={1} />
+      <AnimatedBlob color="#f59e0b" size={250} top="5%" right="-8%" delay={1} />
 
       <SectionHeading
         title="Experience"

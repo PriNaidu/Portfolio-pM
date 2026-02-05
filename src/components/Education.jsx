@@ -53,7 +53,7 @@ const CgpaRing = ({ cgpa, maxCgpa, color }) => {
 const Education = () => {
   return (
     <SectionWrapper id="education">
-      <AnimatedBlob color="#2563eb" size={200} top="0%" left="-5%" delay={2} />
+      <AnimatedBlob color="#6366f1" size={200} top="0%" left="-5%" delay={2} />
 
       <SectionHeading
         title="Education"
