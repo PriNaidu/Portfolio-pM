@@ -78,7 +78,7 @@ const About = () => {
               <div className="shrink-0">
                 <div className="w-36 h-36 md:w-44 md:h-44 rounded-2xl p-[3px] bg-gradient-to-br from-primary via-secondary to-accent">
                   <img
-                    src="/profilephoto.png"
+                    src="/linkedinprofile.jpg"
                     alt={personalInfo.name}
                     className="w-full h-full rounded-2xl object-cover border-4 border-dark"
                   />

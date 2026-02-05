@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { motion } from "framer-motion";
-import { HiMail, HiPhone } from "react-icons/hi";
+import { motion, AnimatePresence } from "framer-motion";
+import emailjs from "@emailjs/browser";
+import { HiMail, HiPhone, HiCheckCircle, HiExclamationCircle } from "react-icons/hi";
 import { FaLinkedinIn, FaGithub } from "react-icons/fa6";
 import SectionWrapper from "../ui/SectionWrapper";
 import SectionHeading from "../ui/SectionHeading";
@@ -9,6 +10,11 @@ import AnimatedBlob from "../ui/AnimatedBlob";
 import ScrollReveal from "../ui/ScrollReveal";
 import { staggerContainer, fadeInUp, scaleIn } from "../animations/variants";
 import { personalInfo } from "../data/personalInfo";
+
+// EmailJS configuration — replace these with your actual IDs from https://emailjs.com
+const EMAILJS_SERVICE_ID = "service_0mpzrct";
+const EMAILJS_TEMPLATE_ID = "template_cra43tc";
+const EMAILJS_PUBLIC_KEY = "91MtajfE2WV4iuQA1";
 
 const contactLinks = [
   {
@@ -48,20 +54,35 @@ const Contact = () => {
     email: "",
     message: "",
   });
+  const [status, setStatus] = useState(null); // "sending" | "success" | "error"
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const subject = encodeURIComponent(
-      `Portfolio Contact from ${formData.name}`
-    );
-    const body = encodeURIComponent(
-      `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
-    );
-    window.location.href = `mailto:${personalInfo.email}?subject=${subject}&body=${body}`;
+    setStatus("sending");
+
+    try {
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          message: formData.message,
+          to_name: personalInfo.name,
+        },
+        EMAILJS_PUBLIC_KEY
+      );
+      setStatus("success");
+      setFormData({ name: "", email: "", message: "" });
+      setTimeout(() => setStatus(null), 5000);
+    } catch {
+      setStatus("error");
+      setTimeout(() => setStatus(null), 5000);
+    }
   };
 
   return (
@@ -118,10 +139,50 @@ const Contact = () => {
                 placeholder="Tell me about the role or opportunity..."
               />
             </div>
-            <GradientButton className="w-full justify-center">
-              <HiMail className="text-lg" />
-              Send Message
+            <GradientButton
+              className="w-full justify-center"
+              disabled={status === "sending"}
+            >
+              {status === "sending" ? (
+                <>
+                  <svg className="animate-spin h-5 w-5" viewBox="0 0 24 24">
+                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
+                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+                  </svg>
+                  Sending...
+                </>
+              ) : (
+                <>
+                  <HiMail className="text-lg" />
+                  Send Message
+                </>
+              )}
             </GradientButton>
+
+            <AnimatePresence>
+              {status === "success" && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  className="flex items-center gap-2 text-green-400 text-sm mt-3"
+                >
+                  <HiCheckCircle className="text-lg" />
+                  Message sent successfully! I&apos;ll get back to you soon.
+                </motion.div>
+              )}
+              {status === "error" && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  className="flex items-center gap-2 text-red-400 text-sm mt-3"
+                >
+                  <HiExclamationCircle className="text-lg" />
+                  Failed to send. Please try again or email me directly.
+                </motion.div>
+              )}
+            </AnimatePresence>
           </form>
         </ScrollReveal>
 

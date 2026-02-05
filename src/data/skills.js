@@ -73,4 +73,19 @@ export const coreSkills = [
       "Metrics & Dashboards",
     ],
   },
+  {
+    title: "Technical Acumen",
+    icon: "FaLaptopCode",
+    color: "#d97706",
+    description:
+      "I bridge the gap between product and engineering. I understand system architecture, APIs, and databases well enough to have meaningful trade-off discussions with developers, write informed technical specs, and assess feasibility early — so engineering effort is never wasted on poorly scoped work.",
+    subSkills: [
+      "API ",
+      "System Architecture Understanding",
+      "SQL & Data Querying",
+      "Engineering Trade-off Discussions",
+      "Technical Feasibility Assessment",
+      "Agile & Scrum Methodologies",
+    ],
+  },
 ];

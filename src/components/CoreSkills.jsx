@@ -5,6 +5,7 @@ import {
   FaRocket,
   FaListOl,
   FaChartLine,
+  FaLaptopCode,
 } from "react-icons/fa6";
 import SectionWrapper from "../ui/SectionWrapper";
 import SectionHeading from "../ui/SectionHeading";
@@ -19,6 +20,7 @@ const iconMap = {
   FaRocket,
   FaListOl,
   FaChartLine,
+  FaLaptopCode,
 };
 
 const CoreSkills = () => {

@@ -17,7 +17,7 @@ const Footer = () => {
               &copy; {new Date().getFullYear()} M Priyanka Naidu
             </p>
             <p className="text-light-dim/50 text-xs mt-1">
-              Associate Product Manager | Product-minded Engineer
+              Aspiring Product Manager | Product-minded Engineer
             </p>
           </div>
        
