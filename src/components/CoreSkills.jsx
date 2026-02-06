@@ -26,7 +26,10 @@ const iconMap = {
 const CoreSkills = () => {
   return (
     <SectionWrapper id="skills">
-      <AnimatedBlob color="#06b6d4" size={250} bottom="0%" right="-5%" delay={3} />
+      {/* Hide blob on small screens */}
+      <div className="hidden sm:block">
+        <AnimatedBlob color="#06b6d4" size={250} bottom="0%" right="-5%" delay={3} />
+      </div>
 
       <SectionHeading
         title="Core Product Skills"
@@ -38,17 +41,17 @@ const CoreSkills = () => {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.05 }}
-        className="grid grid-cols-1 md:grid-cols-2 gap-6"
+        className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6"
       >
         {coreSkills.map((skill) => {
           const Icon = iconMap[skill.icon];
           return (
             <motion.div key={skill.title} variants={fadeInUp}>
-              <GlassCard hoverColor={skill.color} className="p-6 h-full">
+              <GlassCard hoverColor={skill.color} className="p-4 sm:p-6 h-full">
                 {/* Icon + Title */}
-                <div className="flex items-center gap-3 mb-3">
+                <div className="flex items-center gap-2.5 sm:gap-3 mb-2.5 sm:mb-3">
                   <div
-                    className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0"
+                    className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl flex items-center justify-center shrink-0"
                     style={{
                       background: `${skill.color}12`,
                       border: `1px solid ${skill.color}25`,
@@ -56,13 +59,13 @@ const CoreSkills = () => {
                   >
                     {Icon && (
                       <Icon
-                        className="text-lg"
+                        className="text-base sm:text-lg"
                         style={{ color: skill.color }}
                       />
                     )}
                   </div>
                   <h3
-                    className="text-lg font-bold font-heading"
+                    className="text-base sm:text-lg font-bold font-heading"
                     style={{ color: skill.color }}
                   >
                     {skill.title}
@@ -70,7 +73,7 @@ const CoreSkills = () => {
                 </div>
 
                 {/* Description */}
-                <p className="text-light-dim text-sm leading-relaxed mb-4">
+                <p className="text-light-dim text-sm leading-relaxed mb-3 sm:mb-4">
                   {skill.description}
                 </p>
 
@@ -79,7 +82,7 @@ const CoreSkills = () => {
                   {skill.subSkills.map((sub) => (
                     <span
                       key={sub}
-                      className="text-xs px-2.5 py-1 rounded-md text-light-dim"
+                      className="text-[11px] sm:text-xs px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-md text-light-dim"
                       style={{
                         background: `${skill.color}10`,
                         border: `1px solid ${skill.color}18`,

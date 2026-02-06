@@ -21,9 +21,17 @@ const Hero = () => {
       id="hero"
       className="min-h-screen flex items-center justify-center relative overflow-hidden animated-gradient"
     >
-      <AnimatedBlob color="#6366f1" size={400} top="-10%" left="-5%" delay={0} />
-      <AnimatedBlob color="#06b6d4" size={350} bottom="10%" right="-5%" delay={2} />
-      <AnimatedBlob color="#f59e0b" size={200} top="20%" right="10%" delay={4} />
+      {/* Blobs - smaller/hidden on mobile to reduce visual noise */}
+      <div className="hidden sm:block">
+        <AnimatedBlob color="#6366f1" size={400} top="-10%" left="-5%" delay={0} />
+      </div>
+      <AnimatedBlob color="#06b6d4" size={200} bottom="10%" right="-10%" delay={2} className="sm:hidden" />
+      <div className="hidden sm:block">
+        <AnimatedBlob color="#06b6d4" size={350} bottom="10%" right="-5%" delay={2} />
+      </div>
+      <div className="hidden md:block">
+        <AnimatedBlob color="#f59e0b" size={200} top="20%" right="10%" delay={4} />
+      </div>
 
       <motion.div
         variants={staggerContainer}
@@ -70,11 +78,11 @@ const Hero = () => {
           {personalInfo.heroDescription}
         </motion.p>
 
-        <motion.div variants={fadeInUp} className="flex flex-wrap justify-center gap-3 mb-8">
+        <motion.div variants={fadeInUp} className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-6 sm:mb-8 px-2">
           {["Product Discovery", "PRDs & User Stories", "RICE Prioritization", "UX Optimization", "AI/SaaS Products"].map((tag) => (
             <span
               key={tag}
-              className="text-xs md:text-sm bg-primary/10 text-primary-light border border-primary/20 rounded-full px-4 py-1.5 font-medium"
+              className="text-[11px] sm:text-xs md:text-sm bg-primary/10 text-primary-light border border-primary/20 rounded-full px-3 sm:px-4 py-1 sm:py-1.5 font-medium"
             >
               {tag}
             </span>
@@ -83,13 +91,13 @@ const Hero = () => {
 
         <motion.div
           variants={fadeInUp}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4"
+          className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 px-4 sm:px-0"
         >
-          <GradientButton onClick={scrollToContact}>
+          <GradientButton onClick={scrollToContact} className="w-full sm:w-auto justify-center">
             <HiChatBubbleLeftRight className="text-lg" />
             Get in Touch
           </GradientButton>
-          <GradientButton href={personalInfo.resumeUrl} variant="outline" download="M_Priyanka_Naidu_Resume.pdf">
+          <GradientButton href={personalInfo.resumeUrl} variant="outline" download="M_Priyanka_Naidu_Resume.pdf" className="w-full sm:w-auto justify-center">
             <HiDownload className="text-lg" />
             Download Resume
           </GradientButton>

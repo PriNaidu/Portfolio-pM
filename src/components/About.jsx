@@ -63,32 +63,35 @@ const highlights = [
 const About = () => {
   return (
     <SectionWrapper id="about" className="section-alt">
-      <AnimatedBlob color="#6366f1" size={250} top="-5%" right="-5%" delay={1} />
+      {/* Hide blob on small screens */}
+      <div className="hidden sm:block">
+        <AnimatedBlob color="#6366f1" size={250} top="-5%" right="-5%" delay={1} />
+      </div>
 
       <SectionHeading
         title="About Me"
         subtitle="Product-minded engineer who understands both the code and the customer"
       />
 
-      <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
+      <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12">
         {/* Left - Photo + Main Content (3 cols) */}
         <div className="lg:col-span-3">
           <ScrollReveal>
-            <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6 mb-8">
+            <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 sm:gap-6 mb-6 sm:mb-8">
               <div className="shrink-0">
-                <div className="w-36 h-36 md:w-44 md:h-44 rounded-2xl p-[3px] bg-gradient-to-br from-primary via-secondary to-accent">
+                <div className="w-28 h-28 sm:w-36 sm:h-36 md:w-44 md:h-44 rounded-2xl p-[3px] bg-gradient-to-br from-primary via-secondary to-accent">
                   <img
                     src="/linkedinprofile.jpg"
                     alt={personalInfo.name}
-                    className="w-full h-full rounded-2xl object-cover border-4 border-dark"
+                    className="w-full h-full rounded-2xl object-cover border-3 sm:border-4 border-dark"
                   />
                 </div>
               </div>
               <div className="text-center sm:text-left">
-                <h3 className="text-xl md:text-2xl font-bold font-heading text-light mb-2">
+                <h3 className="text-lg sm:text-xl md:text-2xl font-bold font-heading text-light mb-1 sm:mb-2">
                   {personalInfo.name}
                 </h3>
-                <p className="text-primary-light font-medium mb-2">
+                <p className="text-primary-light font-medium text-sm sm:text-base mb-2">
                   {personalInfo.subtitle}
                 </p>
                 <p className="text-light-dim text-sm leading-relaxed">
@@ -98,11 +101,11 @@ const About = () => {
             </div>
           </ScrollReveal>
           <ScrollReveal>
-            <div className="space-y-6">
-              <p className="text-light/80 text-base md:text-sm leading-relaxed">
+            <div className="space-y-4 sm:space-y-6">
+              <p className="text-light/80 text-sm sm:text-base md:text-sm leading-relaxed">
                 {personalInfo.tagline}
               </p>
-              <p className="text-light-dim text-base leading-relaxed">
+              <p className="text-light-dim text-sm sm:text-base leading-relaxed">
                 {personalInfo.aboutParagraph2}
               </p>
             </div>
@@ -116,25 +119,25 @@ const About = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="grid grid-cols-2 gap-4"
+            className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-2 gap-3 sm:gap-4"
           >
             {highlights.map((item) => (
               <motion.div key={item.label} variants={fadeInUp}>
-                <GlassCard hoverColor={item.color} className="text-center py-5 h-full">
+                <GlassCard hoverColor={item.color} className="text-center py-4 sm:py-5 h-full">
                   <item.icon
-                    className="text-2xl mx-auto mb-2"
+                    className="text-xl sm:text-2xl mx-auto mb-1.5 sm:mb-2"
                     style={{ color: item.color }}
                   />
                   <div
-                    className="text-2xl font-bold font-heading mb-0.5"
+                    className="text-xl sm:text-2xl font-bold font-heading mb-0.5"
                     style={{ color: item.color }}
                   >
                     {item.value}
                   </div>
-                  <div className="font-semibold text-light text-sm">
+                  <div className="font-semibold text-light text-xs sm:text-sm">
                     {item.label}
                   </div>
-                  <div className="text-light-dim text-xs mt-0.5">{item.detail}</div>
+                  <div className="text-light-dim text-[10px] sm:text-xs mt-0.5">{item.detail}</div>
                 </GlassCard>
               </motion.div>
             ))}

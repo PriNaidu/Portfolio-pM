@@ -99,18 +99,111 @@ const Contact = () => {
 
   return (
     <SectionWrapper id="contact">
-      <AnimatedBlob color="#6366f1" size={250} top="0%" right="-5%" delay={2} />
+      {/* Smaller blob on mobile, hidden on very small screens */}
+      <div className="hidden sm:block">
+        <AnimatedBlob color="#6366f1" size={250} top="0%" right="-5%" delay={2} />
+      </div>
 
       <SectionHeading
         title="Get In Touch"
         subtitle="I'm actively exploring Associate Product Manager/Technical Product Manager roles. Whether you have an opportunity, want to collaborate, or just want to chat about product — I'd love to hear from you."
       />
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-        <ScrollReveal direction="left">
-          <form onSubmit={handleSubmit} className="space-y-5">
+      {/* Reversed order on mobile: contact info first, then form */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+        {/* Contact Info - Shows first on mobile */}
+        <ScrollReveal direction="up" className="order-1 md:order-2">
+          <div className="space-y-5 md:space-y-6">
             <div>
-              <label className="block text-sm text-light-dim mb-2 font-medium">
+              <h3 className="text-base md:text-lg font-semibold font-heading text-light mb-2 md:mb-3">
+                Let&apos;s Connect
+              </h3>
+              <p className="text-light-dim text-sm leading-relaxed">
+                I&apos;m actively looking for Associate Product Manager/Technical Product Manager roles where I can
+                bring my unique blend of engineering experience and product management
+                training. I&apos;m especially interested in SaaS, AI/ML products, and
+                companies that value data-informed decision making and user-centric
+                product development.
+              </p>
+              <p className="text-light-dim text-sm leading-relaxed mt-2 md:mt-3">
+                Open to full-time roles, contract opportunities, and conversations
+                about product management, startup building, and technology.
+              </p>
+            </div>
+
+            {/* Contact links - larger touch targets on mobile */}
+            <motion.div
+              variants={staggerContainer}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              className="space-y-2 sm:space-y-3"
+            >
+              {contactLinks.map((link) => (
+                <motion.a
+                  key={link.label}
+                  variants={fadeInUp}
+                  href={link.href}
+                  className="flex items-center gap-3 sm:gap-4 group p-3 sm:p-3 rounded-xl sm:rounded-lg bg-white/2 sm:bg-transparent hover:bg-white/5 active:bg-white/8 transition-colors"
+                >
+                  <div
+                    className="w-11 h-11 sm:w-10 sm:h-10 rounded-xl sm:rounded-lg flex items-center justify-center shrink-0"
+                    style={{
+                      background: `${link.color}12`,
+                      border: `1px solid ${link.color}25`,
+                    }}
+                  >
+                    <link.icon className="text-xl sm:text-lg" style={{ color: link.color }} />
+                  </div>
+                  <div className="min-w-0">
+                    <p className="text-xs text-light-dim">{link.label}</p>
+                    <p className="text-sm text-light group-hover:text-primary-light transition-colors truncate">
+                      {link.value}
+                    </p>
+                  </div>
+                </motion.a>
+              ))}
+            </motion.div>
+
+            {/* Social links - larger touch targets */}
+            <div className="pt-1 sm:pt-2">
+              <p className="text-xs text-light-dim uppercase tracking-widest mb-3">
+                Social Profiles
+              </p>
+              <motion.div
+                variants={staggerContainer}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                className="flex gap-2 sm:gap-3 flex-wrap"
+              >
+                {socialLinks.map((link) => (
+                  <motion.a
+                    key={link.label}
+                    variants={scaleIn}
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={link.label}
+                    className="w-12 h-12 sm:w-11 sm:h-11 rounded-xl sm:rounded-lg flex items-center justify-center transition-all active:scale-95 hover:scale-105"
+                    style={{
+                      background: `${link.color}10`,
+                      border: `1px solid ${link.color}20`,
+                    }}
+                  >
+                    <link.icon className="text-lg sm:text-base" style={{ color: link.color }} />
+                  </motion.a>
+                ))}
+              </motion.div>
+            </div>
+          </div>
+        </ScrollReveal>
+
+        {/* Contact Form - Shows second on mobile */}
+        <ScrollReveal direction="up" className="order-2 md:order-1">
+          <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5">
+            <div>
+              <label className="block text-sm text-light-dim mb-1.5 sm:mb-2 font-medium">
                 Your Name
               </label>
               <input
@@ -119,12 +212,12 @@ const Contact = () => {
                 value={formData.name}
                 onChange={handleChange}
                 required
-                className="w-full bg-dark-card border border-white/8 rounded-lg px-4 py-3 text-light text-sm focus:outline-none focus:border-primary/50 transition-colors placeholder-light-dim/40"
+                className="w-full bg-dark-card border border-white/8 rounded-xl sm:rounded-lg px-4 py-3.5 sm:py-3 text-light text-base sm:text-sm focus:outline-none focus:border-primary/50 focus:ring-2 focus:ring-primary/20 transition-all placeholder-light-dim/40"
                 placeholder="John Doe"
               />
             </div>
             <div>
-              <label className="block text-sm text-light-dim mb-2 font-medium">
+              <label className="block text-sm text-light-dim mb-1.5 sm:mb-2 font-medium">
                 Your Email
               </label>
               <input
@@ -133,12 +226,12 @@ const Contact = () => {
                 value={formData.email}
                 onChange={handleChange}
                 required
-                className="w-full bg-dark-card border border-white/8 rounded-lg px-4 py-3 text-light text-sm focus:outline-none focus:border-primary/50 transition-colors placeholder-light-dim/40"
+                className="w-full bg-dark-card border border-white/8 rounded-xl sm:rounded-lg px-4 py-3.5 sm:py-3 text-light text-base sm:text-sm focus:outline-none focus:border-primary/50 focus:ring-2 focus:ring-primary/20 transition-all placeholder-light-dim/40"
                 placeholder="john@company.com"
               />
             </div>
             <div>
-              <label className="block text-sm text-light-dim mb-2 font-medium">
+              <label className="block text-sm text-light-dim mb-1.5 sm:mb-2 font-medium">
                 Message
               </label>
               <textarea
@@ -146,13 +239,13 @@ const Contact = () => {
                 value={formData.message}
                 onChange={handleChange}
                 required
-                rows={5}
-                className="w-full bg-dark-card border border-white/8 rounded-lg px-4 py-3 text-light text-sm focus:outline-none focus:border-primary/50 transition-colors placeholder-light-dim/40 resize-none"
+                rows={4}
+                className="w-full bg-dark-card border border-white/8 rounded-xl sm:rounded-lg px-4 py-3.5 sm:py-3 text-light text-base sm:text-sm focus:outline-none focus:border-primary/50 focus:ring-2 focus:ring-primary/20 transition-all placeholder-light-dim/40 resize-none"
                 placeholder="Tell me about the role or opportunity..."
               />
             </div>
             <GradientButton
-              className="w-full justify-center"
+              className="w-full justify-center py-3.5 sm:py-3 text-base sm:text-sm"
               disabled={status === "sending"}
             >
               {status === "sending" ? (
@@ -177,10 +270,10 @@ const Contact = () => {
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -10 }}
-                  className="flex items-center gap-2 text-green-400 text-sm mt-3"
+                  className="flex items-start sm:items-center gap-2 text-green-400 text-sm mt-3 p-3 bg-green-500/10 rounded-lg"
                 >
-                  <HiCheckCircle className="text-lg" />
-                  Message sent successfully! I&apos;ll get back to you soon.
+                  <HiCheckCircle className="text-lg shrink-0 mt-0.5 sm:mt-0" />
+                  <span>Message sent successfully! I&apos;ll get back to you soon.</span>
                 </motion.div>
               )}
               {status === "error" && (
@@ -188,99 +281,14 @@ const Contact = () => {
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -10 }}
-                  className="flex items-center gap-2 text-red-400 text-sm mt-3"
+                  className="flex items-start sm:items-center gap-2 text-red-400 text-sm mt-3 p-3 bg-red-500/10 rounded-lg"
                 >
-                  <HiExclamationCircle className="text-lg" />
-                  Failed to send. Please try again or email me directly.
+                  <HiExclamationCircle className="text-lg shrink-0 mt-0.5 sm:mt-0" />
+                  <span>Failed to send. Please try again or email me directly.</span>
                 </motion.div>
               )}
             </AnimatePresence>
           </form>
-        </ScrollReveal>
-
-        <ScrollReveal direction="right">
-          <div className="space-y-6">
-            <div>
-              <h3 className="text-lg font-semibold font-heading text-light mb-3">
-                Let&apos;s Connect
-              </h3>
-              <p className="text-light-dim text-sm leading-relaxed">
-                I&apos;m actively looking for Associate Product Manager/Technical Product Manager roles where I can
-                bring my unique blend of engineering experience and product management
-                training. I&apos;m especially interested in SaaS, AI/ML products, and
-                companies that value data-informed decision making and user-centric
-                product development.
-              </p>
-              <p className="text-light-dim text-sm leading-relaxed mt-3">
-                Open to full-time roles, contract opportunities, and conversations
-                about product management, startup building, and technology.
-              </p>
-            </div>
-
-            <motion.div
-              variants={staggerContainer}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              className="space-y-3"
-            >
-              {contactLinks.map((link) => (
-                <motion.a
-                  key={link.label}
-                  variants={fadeInUp}
-                  href={link.href}
-                  className="flex items-center gap-4 group p-3 rounded-lg hover:bg-white/3 transition-colors"
-                >
-                  <div
-                    className="w-10 h-10 rounded-lg flex items-center justify-center"
-                    style={{
-                      background: `${link.color}12`,
-                      border: `1px solid ${link.color}25`,
-                    }}
-                  >
-                    <link.icon className="text-lg" style={{ color: link.color }} />
-                  </div>
-                  <div>
-                    <p className="text-xs text-light-dim">{link.label}</p>
-                    <p className="text-sm text-light group-hover:text-primary-light transition-colors">
-                      {link.value}
-                    </p>
-                  </div>
-                </motion.a>
-              ))}
-            </motion.div>
-
-            <div className="pt-2">
-              <p className="text-xs text-light-dim uppercase tracking-widest mb-3">
-                Social Profiles
-              </p>
-              <motion.div
-                variants={staggerContainer}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                className="flex gap-3"
-              >
-                {socialLinks.map((link) => (
-                  <motion.a
-                    key={link.label}
-                    variants={scaleIn}
-                    href={link.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={link.label}
-                    className="w-11 h-11 rounded-lg flex items-center justify-center transition-all hover:scale-105"
-                    style={{
-                      background: `${link.color}10`,
-                      border: `1px solid ${link.color}20`,
-                    }}
-                  >
-                    <link.icon className="text-base" style={{ color: link.color }} />
-                  </motion.a>
-                ))}
-              </motion.div>
-            </div>
-          </div>
         </ScrollReveal>
       </div>
     </SectionWrapper>

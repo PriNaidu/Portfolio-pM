@@ -9,7 +9,7 @@ const GradientButton = ({
   download = false,
 }) => {
   const baseClasses =
-    "inline-flex items-center gap-2 rounded-lg px-7 py-3 font-semibold text-sm md:text-base transition-all cursor-pointer";
+    "inline-flex items-center gap-2 rounded-xl sm:rounded-lg px-5 sm:px-7 py-3 sm:py-3 font-semibold text-sm sm:text-base transition-all cursor-pointer";
 
   const variants = {
     primary:

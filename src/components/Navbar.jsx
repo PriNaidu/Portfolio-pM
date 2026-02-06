@@ -75,43 +75,54 @@ const Navbar = () => {
           </div>
 
           <button
-            className="md:hidden text-light-dim hover:text-light p-2 cursor-pointer"
+            className="md:hidden text-light-dim hover:text-light p-2.5 -mr-2 rounded-lg active:bg-white/5 cursor-pointer"
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label="Toggle menu"
           >
-            {mobileOpen ? <HiX size={24} /> : <HiMenuAlt3 size={24} />}
+            {mobileOpen ? <HiX size={26} /> : <HiMenuAlt3 size={26} />}
           </button>
         </div>
       </div>
 
       <AnimatePresence>
         {mobileOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
-            className="md:hidden glass-strong overflow-hidden"
-          >
-            <div className="px-4 py-4 flex flex-col gap-1">
-              {navLinks.map((link, i) => (
-                <motion.button
-                  key={link.id}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: i * 0.05 }}
-                  onClick={() => scrollTo(link.id)}
-                  className={`text-left px-4 py-3 rounded-xl text-sm font-medium transition-all cursor-pointer ${
-                    activeId === link.id
-                      ? "bg-primary/15 text-primary-light"
-                      : "text-light-dim hover:text-light hover:bg-white/5"
-                  }`}
-                >
-                  {link.label}
-                </motion.button>
-              ))}
-            </div>
-          </motion.div>
+          <>
+            {/* Backdrop */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className="md:hidden fixed inset-0 top-16 bg-dark/60 backdrop-blur-sm z-40"
+              onClick={() => setMobileOpen(false)}
+            />
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.3 }}
+              className="md:hidden glass-strong overflow-hidden relative z-50"
+            >
+              <div className="px-4 py-3 flex flex-col gap-1">
+                {navLinks.map((link, i) => (
+                  <motion.button
+                    key={link.id}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: i * 0.05 }}
+                    onClick={() => scrollTo(link.id)}
+                    className={`text-left px-4 py-3.5 rounded-xl text-base font-medium transition-all cursor-pointer active:scale-[0.98] ${
+                      activeId === link.id
+                        ? "bg-primary/15 text-primary-light"
+                        : "text-light-dim hover:text-light active:bg-white/5"
+                    }`}
+                  >
+                    {link.label}
+                  </motion.button>
+                ))}
+              </div>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
     </motion.nav>

@@ -9,7 +9,10 @@ import { experiences } from "../data/experience";
 const Experience = () => {
   return (
     <SectionWrapper id="experience" className="section-alt">
-      <AnimatedBlob color="#f59e0b" size={250} top="5%" right="-8%" delay={1} />
+      {/* Hide blob on small screens */}
+      <div className="hidden sm:block">
+        <AnimatedBlob color="#f59e0b" size={250} top="5%" right="-8%" delay={1} />
+      </div>
 
       <SectionHeading
         title="Experience"
@@ -47,7 +50,7 @@ const Experience = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.05 }}
-          className="relative space-y-12"
+          className="relative space-y-8 sm:space-y-12"
         >
           {experiences.map((exp, index) => {
             const isLeft = index % 2 === 0;
@@ -91,14 +94,14 @@ const Experience = () => {
                     isLeft ? "md:mr-auto" : "md:ml-auto"
                   }`}
                 >
-                  <GlassCard hoverColor={exp.color} className="p-5 md:p-6">
+                  <GlassCard hoverColor={exp.color} className="p-4 sm:p-5 md:p-6">
                     {/* Header */}
-                    <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-3">
+                    <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1.5 sm:gap-2 mb-2.5 sm:mb-3">
                       <div>
-                        <h3 className="text-lg font-bold font-heading text-light">
+                        <h3 className="text-base sm:text-lg font-bold font-heading text-light">
                           {exp.role}
                         </h3>
-                        <div className="flex items-center gap-2 mt-1">
+                        <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 mt-1">
                           <span
                             className="font-semibold text-sm"
                             style={{ color: exp.color }}
@@ -106,29 +109,29 @@ const Experience = () => {
                             {exp.company}
                           </span>
                           {exp.type && (
-                            <span className="text-xs text-light-dim bg-white/5 px-2 py-0.5 rounded">
+                            <span className="text-[10px] sm:text-xs text-light-dim bg-white/5 px-1.5 sm:px-2 py-0.5 rounded">
                               {exp.type}
                             </span>
                           )}
                         </div>
                       </div>
-                      <span className="text-xs text-light-dim bg-white/5 px-2.5 py-1 rounded-lg whitespace-nowrap self-start">
+                      <span className="text-[10px] sm:text-xs text-light-dim bg-white/5 px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-lg whitespace-nowrap self-start mt-1 sm:mt-0">
                         {exp.period}
                       </span>
                     </div>
 
                     {/* Summary */}
-                    <p className="text-light-dim text-sm leading-relaxed mb-3">
+                    <p className="text-light-dim text-sm leading-relaxed mb-2.5 sm:mb-3">
                       {exp.summary}
                     </p>
 
                     {/* Highlight badges */}
                     {exp.highlights && (
-                      <div className="flex flex-wrap gap-1.5 mb-3">
+                      <div className="flex flex-wrap gap-1 sm:gap-1.5 mb-2.5 sm:mb-3">
                         {exp.highlights.map((h) => (
                           <span
                             key={h}
-                            className="text-xs font-semibold px-2.5 py-0.5 rounded-md"
+                            className="text-[10px] sm:text-xs font-semibold px-2 sm:px-2.5 py-0.5 rounded-md"
                             style={{
                               color: exp.color,
                               background: `${exp.color}12`,
@@ -142,11 +145,11 @@ const Experience = () => {
                     )}
 
                     {/* Key bullet points - show top 3 */}
-                    <ul className="space-y-2">
+                    <ul className="space-y-1.5 sm:space-y-2">
                       {exp.description.slice(0, 3).map((point, i) => (
                         <li
                           key={i}
-                          className="text-sm text-light-dim leading-relaxed flex gap-2.5"
+                          className="text-sm text-light-dim leading-relaxed flex gap-2 sm:gap-2.5"
                         >
                           <span
                             className="mt-1.5 w-1.5 h-1.5 rounded-full shrink-0"
