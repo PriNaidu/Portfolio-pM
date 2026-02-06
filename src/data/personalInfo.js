@@ -14,5 +14,7 @@ export const personalInfo = {
   phone: "+91 93488 24450",
   linkedin: "https://linkedin.com/in/mpriyanka-naidu/",
   github: "https://github.com/PriNaidu",
+  instagram: "https://www.instagram.com/pri_naidu_009/",
+  threads: "https://www.threads.com/@pri_naidu_009",
   resumeUrl: "/resume.pdf",
 };

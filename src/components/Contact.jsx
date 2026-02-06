@@ -2,7 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import emailjs from "@emailjs/browser";
 import { HiMail, HiPhone, HiCheckCircle, HiExclamationCircle } from "react-icons/hi";
-import { FaLinkedinIn, FaGithub } from "react-icons/fa6";
+import { FaLinkedinIn, FaGithub, FaInstagram, FaThreads } from "react-icons/fa6";
 import SectionWrapper from "../ui/SectionWrapper";
 import SectionHeading from "../ui/SectionHeading";
 import GradientButton from "../ui/GradientButton";
@@ -45,6 +45,18 @@ const socialLinks = [
     label: "GitHub",
     href: personalInfo.github,
     color: "#06b6d4",
+  },
+  {
+    icon: FaInstagram,
+    label: "Instagram",
+    href: personalInfo.instagram,
+    color: "#e1306c",
+  },
+  {
+    icon: FaThreads,
+    label: "Threads",
+    href: personalInfo.threads,
+    color: "#ffffff",
   },
 ];
 
@@ -240,7 +252,7 @@ const Contact = () => {
 
             <div className="pt-2">
               <p className="text-xs text-light-dim uppercase tracking-widest mb-3">
-                Professional Profiles
+                Social Profiles
               </p>
               <motion.div
                 variants={staggerContainer}
