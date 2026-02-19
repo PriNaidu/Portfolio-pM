@@ -4,7 +4,8 @@ import SectionHeading from "../ui/SectionHeading";
 import GlassCard from "../ui/GlassCard";
 import AnimatedBlob from "../ui/AnimatedBlob";
 import { staggerContainer, fadeInUp } from "../animations/variants";
-import { education } from "../data/education";
+import { education, certification } from "../data/education";
+import { HiAcademicCap, HiArrowTopRightOnSquare } from "react-icons/hi2";
 
 const CgpaRing = ({ cgpa, maxCgpa, color }) => {
   const percentage = cgpa / maxCgpa;
@@ -59,9 +60,85 @@ const Education = () => {
       </div>
 
       <SectionHeading
-        title="Education"
-        subtitle="The academic foundation that powers my product thinking and technical understanding"
+        title="Education & Certification"
+        subtitle="The academic foundation and PM training that powers my product thinking"
       />
+
+      {/* Highlighted PM Fellowship Card */}
+      <motion.div
+        variants={fadeInUp}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+        className="max-w-4xl mx-auto mb-6 sm:mb-8 md:mb-10"
+      >
+        <GlassCard hoverColor={certification.color} className="relative p-5 sm:p-7 md:p-8 overflow-hidden">
+          {/* Top gradient border */}
+          <div
+            className="absolute top-0 left-0 right-0 h-1"
+            style={{
+              background: `linear-gradient(90deg, ${certification.color}, #f97316, ${certification.color})`,
+            }}
+          />
+
+          {/* Subtle corner glow */}
+          <div
+            className="absolute -top-16 -right-16 w-40 h-40 rounded-full opacity-10 blur-3xl"
+            style={{ background: certification.color }}
+          />
+
+          <div className="flex flex-col sm:flex-row items-start gap-4 sm:gap-6">
+            {/* Icon */}
+            <div
+              className="shrink-0 w-14 h-14 sm:w-16 sm:h-16 rounded-xl flex items-center justify-center"
+              style={{
+                background: `${certification.color}15`,
+                border: `1px solid ${certification.color}30`,
+              }}
+            >
+              <HiAcademicCap className="text-2xl sm:text-3xl" style={{ color: certification.color }} />
+            </div>
+
+            <div className="min-w-0 flex-1">
+              <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-2">
+                <h3 className="text-lg sm:text-xl font-bold font-heading text-light">
+                  {certification.title}
+                </h3>
+                <span
+                  className="inline-block text-[10px] sm:text-xs font-bold px-2.5 py-1 rounded-full uppercase tracking-wider"
+                  style={{
+                    color: certification.color,
+                    background: `${certification.color}15`,
+                    border: `1px solid ${certification.color}30`,
+                  }}
+                >
+                  Certified
+                </span>
+              </div>
+              <p className="text-sm sm:text-base font-medium mb-3" style={{ color: certification.color }}>
+                {certification.institution}
+              </p>
+              <p className="text-light-dim text-sm leading-relaxed mb-4">
+                {certification.description}
+              </p>
+              <a
+                href="/pm certificate.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-xs sm:text-sm font-semibold px-4 py-2 rounded-lg transition-all duration-300 hover:scale-105"
+                style={{
+                  color: certification.color,
+                  background: `${certification.color}15`,
+                  border: `1px solid ${certification.color}30`,
+                }}
+              >
+                <HiArrowTopRightOnSquare className="text-sm" />
+                View Certificate
+              </a>
+            </div>
+          </div>
+        </GlassCard>
+      </motion.div>
 
       <motion.div
         variants={staggerContainer}

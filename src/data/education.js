@@ -1,3 +1,11 @@
+export const certification = {
+  title: "Product Management Fellowship",
+  institution: "NextLeap",
+  color: "#f59e0b",
+  description:
+    "Graduated from NextLeap's intensive PM Fellowship program — covering product strategy, user research, prioritization frameworks, roadmapping, and go-to-market execution. Built real-world product sense through hands-on case studies and mentorship from industry PMs.",
+};
+
 export const education = [
   {
     degree: "Master of Computer Applications",
