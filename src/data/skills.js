@@ -4,7 +4,7 @@ export const coreSkills = [
     icon: "FaSearchengin",
     color: "#6366f1",
     description:
-      "I start every product initiative by deeply understanding the user and the problem space. Through structured user interviews, stakeholder conversations, and Jobs-To-Be-Done analysis, I uncover the real pain points that matter — not just the symptoms. I've conducted 15+ user interviews across diverse personas and used insights to validate hypotheses before committing engineering resources.",
+      "Deeply understand users and problem spaces through structured interviews, stakeholder conversations, and JTBD analysis. Conducted 15+ user interviews across diverse personas to validate hypotheses before committing resources.",
     subSkills: [
       "User Interviews",
       "Stakeholder Interviews",
@@ -19,7 +19,7 @@ export const coreSkills = [
     icon: "FaChessKnight",
     color: "#06b6d4",
     description:
-      "I translate user insights into clear product direction. From defining the product vision and building roadmaps to setting OKRs and identifying North Star Metrics, I ensure every feature shipped ties back to measurable business outcomes. At NextLeap, I defined MVP scopes and experiment plans for 3+ product problem statements, presenting strategic trade-offs to senior mentors.",
+      "Translate user insights into clear product direction — vision, roadmaps, OKRs, and North Star Metrics. Defined MVP scopes and experiment plans for 3+ product problems at NextLeap.",
     subSkills: [
       "Product Vision",
       "Roadmap Planning",
@@ -34,7 +34,7 @@ export const coreSkills = [
     icon: "FaRocket",
     color: "#f59e0b",
     description:
-      "I own features from spec to ship. I write detailed PRDs with clear user stories and acceptance criteria, coordinate sprint planning with engineering teams, and manage release cycles to ensure predictable delivery. At Outgrow, I partnered across 3+ cross-functional squads to deliver core features for a platform serving 10K+ MAU.",
+      "Own features from spec to ship — PRDs, user stories, sprint planning, and release coordination. Partnered across 3+ squads to deliver core features for a 10K+ MAU platform at Outgrow.",
     subSkills: [
       "PRDs & Specs",
       "User Stories",
@@ -49,7 +49,7 @@ export const coreSkills = [
     icon: "FaListOl",
     color: "#6366f1",
     description:
-      "Not every good idea deserves to be built right now. I use structured prioritization frameworks to make data-informed decisions about what to build, what to defer, and what to cut. Through RICE scoring, MoSCoW analysis, and impact-vs-effort mapping, I ensure engineering effort is focused on the highest-leverage opportunities.",
+      "Use RICE scoring, MoSCoW analysis, and impact-vs-effort mapping to make data-informed decisions on what to build, defer, or cut — keeping engineering focused on high-leverage opportunities.",
     subSkills: [
       "RICE Framework",
       "MoSCoW Method",
@@ -63,7 +63,7 @@ export const coreSkills = [
     icon: "FaChartLine",
     color: "#06b6d4",
     description:
-      "I believe in measuring what matters. I analyze user behavior through AARRR funnels, track feature adoption rates, and design experiments to validate assumptions before scaling. At Outgrow, I identified high-impact UX improvements through funnel drop-off analysis, shipping iterative experiments that improved user engagement by 70%.",
+      "Analyze user behavior through AARRR funnels, track feature adoption, and design experiments to validate assumptions. Shipped iterative experiments at Outgrow that improved engagement by 70%.",
     subSkills: [
       "AARRR Funnel Analysis",
       "Feature Adoption Tracking",
@@ -78,7 +78,7 @@ export const coreSkills = [
     icon: "FaLaptopCode",
     color: "#f59e0b",
     description:
-      "I bridge the gap between product and engineering. I understand system architecture, APIs, and databases well enough to have meaningful trade-off discussions with developers, write informed technical specs, and assess feasibility early — so engineering effort is never wasted on poorly scoped work.",
+      "Bridge product and engineering — understand system architecture, APIs, and databases to have meaningful trade-off discussions, write informed specs, and assess feasibility early.",
     subSkills: [
       "API ",
       "System Architecture Understanding",
