@@ -3,7 +3,7 @@ export const personalInfo = {
   title: "Associate Product Manager",
   subtitle: "Product-minded Engineer | SaaS & AI Products",
   heroDescription:
-    "Bridging technology and business — 4 years of engineering experience combined with formal PM training, currently building AI-powered SaaS platforms serving 10,000+ monthly users.",
+    "Built AI-powered SaaS products used by 10,000+ users. Drove 70% engagement lift through UX experimentation. 4 years of shipping products + formal PM training — I don't just write PRDs, I build what's in them.",
   tagline:
     "4+ years in SaaS and AI products. Skilled in product discovery, PRDs, prioritization (RICE, MoSCoW), and cross-functional execution. PM trained at NextLeap — owning 5+ product problems end-to-end.",
   aboutParagraph2:

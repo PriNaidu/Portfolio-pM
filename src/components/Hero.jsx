@@ -6,6 +6,13 @@ import GradientButton from "../ui/GradientButton";
 import AnimatedBlob from "../ui/AnimatedBlob";
 import { staggerContainer, fadeInUp } from "../animations/variants";
 
+const impactStats = [
+  { value: "10K+", label: "Users Impacted", color: "#6366f1" },
+  { value: "70%", label: "Engagement Lift", color: "#06b6d4" },
+  { value: "4+", label: "Years Building", color: "#f59e0b" },
+  { value: "5+", label: "Products Shipped", color: "#10b981" },
+];
+
 const Hero = () => {
   const scrollToContact = () => {
     const el = document.getElementById("contact");
@@ -61,7 +68,7 @@ const Hero = () => {
           variants={fadeInUp}
           className="text-primary-light text-sm md:text-base font-medium tracking-widest uppercase mb-4"
         >
-          Associate Product Manager
+          Product Manager who ships
         </motion.p>
 
         <motion.h1
@@ -73,10 +80,39 @@ const Hero = () => {
 
         <motion.p
           variants={fadeInUp}
-          className="text-light-dim text-base md:text-lg lg:text-xl max-w-3xl mx-auto mb-4 leading-relaxed"
+          className="text-light-dim text-base md:text-lg lg:text-xl max-w-3xl mx-auto mb-6 leading-relaxed"
         >
           {personalInfo.heroDescription}
         </motion.p>
+
+        {/* Impact Stats - instant proof of capability */}
+        <motion.div
+          variants={fadeInUp}
+          className="flex flex-wrap justify-center gap-3 sm:gap-6 mb-6 sm:mb-8 px-2"
+        >
+          {impactStats.map((stat) => (
+            <motion.div
+              key={stat.label}
+              className="glass rounded-xl px-4 sm:px-6 py-3 sm:py-4 text-center min-w-[80px] sm:min-w-[120px]"
+              whileHover={{
+                y: -3,
+                boxShadow: `0 12px 30px ${stat.color}25`,
+                borderColor: `${stat.color}40`,
+              }}
+              transition={{ type: "spring", stiffness: 300, damping: 20 }}
+            >
+              <div
+                className="text-xl sm:text-2xl md:text-3xl font-extrabold font-heading"
+                style={{ color: stat.color }}
+              >
+                {stat.value}
+              </div>
+              <div className="text-light-dim text-[10px] sm:text-xs font-medium mt-0.5 uppercase tracking-wide">
+                {stat.label}
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
 
         <motion.div variants={fadeInUp} className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-6 sm:mb-8 px-2">
           {["Product Discovery", "PRDs & User Stories", "RICE Prioritization", "UX Optimization", "AI/SaaS Products"].map((tag) => (

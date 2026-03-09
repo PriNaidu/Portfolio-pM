@@ -1,11 +1,9 @@
 import { motion } from "framer-motion";
 import {
-  HiBriefcase,
-  HiAcademicCap,
-  HiLightBulb,
+  HiLightningBolt,
+  HiCode,
   HiUserGroup,
-  HiTrendingUp,
-  HiChat,
+  HiPuzzle,
 } from "react-icons/hi";
 import SectionWrapper from "../ui/SectionWrapper";
 import SectionHeading from "../ui/SectionHeading";
@@ -15,48 +13,30 @@ import ScrollReveal from "../ui/ScrollReveal";
 import { staggerContainer, fadeInUp } from "../animations/variants";
 import { personalInfo } from "../data/personalInfo";
 
-const highlights = [
+const whatIBring = [
   {
-    icon: HiBriefcase,
-    value: "4+",
-    label: "Years Experience",
-    detail: "Engineering + PM",
+    icon: HiLightningBolt,
+    title: "Outcome-Driven",
+    description: "I start with the metric that matters — then work backwards to the feature. Every PRD ties to a measurable outcome.",
     color: "#6366f1",
-  },
-  {
-    icon: HiChat,
-    value: "15+",
-    label: "User Interviews",
-    detail: "Across personas",
-    color: "#06b6d4",
-  },
-  {
-    icon: HiTrendingUp,
-    value: "70%",
-    label: "Engagement Lift",
-    detail: "UX experiments",
-    color: "#f59e0b",
   },
   {
     icon: HiUserGroup,
-    value: "10K+",
-    label: "Monthly Users",
-    detail: "SaaS platform",
-    color: "#6366f1",
-  },
-  {
-    icon: HiAcademicCap,
-    value: "PM",
-    label: "Fellow",
-    detail: "NextLeap trained",
+    title: "User-Obsessed",
+    description: "15+ user interviews, JTBD analysis, and persona mapping. I don't assume — I discover, validate, then build.",
     color: "#06b6d4",
   },
   {
-    icon: HiLightBulb,
-    value: "5+",
-    label: "Product Cases",
-    detail: "End-to-end ownership",
+    icon: HiCode,
+    title: "Technically Fluent",
+    description: "I speak engineering. APIs, system design, trade-offs — I scope what's feasible, not just what's desirable.",
     color: "#f59e0b",
+  },
+  {
+    icon: HiPuzzle,
+    title: "Cross-Functional Glue",
+    description: "3+ squads, design to QA. I align stakeholders, unblock teams, and keep shipping on cadence.",
+    color: "#10b981",
   },
 ];
 
@@ -112,32 +92,33 @@ const About = () => {
           </ScrollReveal>
         </div>
 
-        {/* Right - Stats Grid (2 cols) */}
+        {/* Right - What I Bring (2 cols) */}
         <div className="lg:col-span-2">
           <motion.div
             variants={staggerContainer}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-2 gap-3 sm:gap-4"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-3 sm:gap-4"
           >
-            {highlights.map((item) => (
-              <motion.div key={item.label} variants={fadeInUp}>
-                <GlassCard hoverColor={item.color} className="text-center py-4 sm:py-5 h-full">
-                  <item.icon
-                    className="text-xl sm:text-2xl mx-auto mb-1.5 sm:mb-2"
-                    style={{ color: item.color }}
-                  />
-                  <div
-                    className="text-xl sm:text-2xl font-bold font-heading mb-0.5"
-                    style={{ color: item.color }}
-                  >
-                    {item.value}
+            {whatIBring.map((item) => (
+              <motion.div key={item.title} variants={fadeInUp}>
+                <GlassCard hoverColor={item.color} className="py-4 sm:py-5 h-full">
+                  <div className="flex items-center gap-3 mb-2">
+                    <item.icon
+                      className="text-xl sm:text-2xl shrink-0"
+                      style={{ color: item.color }}
+                    />
+                    <div
+                      className="font-bold font-heading text-sm sm:text-base"
+                      style={{ color: item.color }}
+                    >
+                      {item.title}
+                    </div>
                   </div>
-                  <div className="font-semibold text-light text-xs sm:text-sm">
-                    {item.label}
-                  </div>
-                  <div className="text-light-dim text-[10px] sm:text-xs mt-0.5">{item.detail}</div>
+                  <p className="text-light-dim text-xs sm:text-sm leading-relaxed">
+                    {item.description}
+                  </p>
                 </GlassCard>
               </motion.div>
             ))}
